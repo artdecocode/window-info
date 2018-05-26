@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    [
+      "transform-rename-import",
+      {
+        "original": "window-info",
+        "replacement": "../src"
+      }
+    ]
+  ],
+  "extends": "../.babelrc"
+}
