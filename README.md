@@ -3,7 +3,7 @@
 [![npm version](https://badge.fury.io/js/window-info.svg)](https://badge.fury.io/js/window-info)
 
 ```bash
-yarn add window-info
+yarn add -E window-info
 ```
 
 `window-info` is a readable stream that pushes data about windows on screen on MacOS.
