@@ -14,12 +14,19 @@
     "example/": "yarn e example/example.js",
     "build": "babel src --copy-files --out-dir build --source-maps"
   },
+  "files": [
+    "build"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/artdecocode/window-info.git"
   },
   "keywords": [
-    "window-info"
+    "window-info",
+    "window",
+    "os",
+    "MacOS",
+    "winid"
   ],
   "author": "Anton <anton@adc.sh>",
   "license": "MIT",
