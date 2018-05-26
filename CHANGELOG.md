@@ -1,5 +1,9 @@
 ## 26 May 2018
 
+### 1.0.2
+
+- [package] files and keywords fields.
+
 ### 1.0.1
 
 - [fix] copy python script with babel.
