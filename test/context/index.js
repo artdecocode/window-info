@@ -3,7 +3,6 @@
  */
 export default class Context {
   async _init() {
-    console.log('init context')
   }
   /**
    * Example method.
@@ -12,6 +11,5 @@ export default class Context {
     return 'OK'
   }
   async _destroy() {
-    console.log('destroy context')
   }
 }

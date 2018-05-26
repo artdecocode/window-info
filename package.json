@@ -4,11 +4,11 @@
   "description": "Window Info is a readable stream that pushes data about windows on screen on MacOS.",
   "main": "build",
   "scripts": {
-    "t": "zoroaster --babel",
+    "t": "zoroaster -b",
     "test": "yarn t test/spec",
     "test-build": "BABEL_ENV=test-build yarn t test/spec",
     "test-all": "yarn-s test test-build",
-    "test-watch": "yarn test --watch",
+    "test-watch": "yarn test -w",
     "lint": "eslint .",
     "e": "node example",
     "example/": "yarn e example/example.js",
