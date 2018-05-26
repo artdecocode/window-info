@@ -1,5 +1,11 @@
 # window-info
 
+[![npm version](https://badge.fury.io/js/window-info.svg)](https://badge.fury.io/js/window-info)
+
+```bash
+yarn add window-info
+```
+
 `window-info` is a readable stream that pushes data about windows on screen on MacOS.
 
 It opens a Python process which uses `Quartz` library to get information about windows.
