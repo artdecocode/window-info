@@ -67,7 +67,10 @@ import WindowInfo from 'window-info'
     }))
     .pipe(new Transform({
       transform(data, enc, next) {
-        this.push(JSON.stringify([['winid', 'App Name', 'Window Title', 'pid'], ...data]))
+        this.push(JSON.stringify([
+          ['winid', 'App Name', 'Window Title', 'pid'],
+          ...data,
+        ]))
         next()
       },
       writableObjectMode: true,
@@ -90,8 +93,8 @@ import WindowInfo from 'window-info'
 | 18 | SystemUIServer | Siri | 386 |
 | 16 | SystemUIServer | NotificationCenter | 386 |
 | 3 | Window Server | Menubar | 177 |
-| 4209 | Visual Studio Code | CHANGELOG.md — window-info | 367 |
-| 4171 | Google Chrome | artdecocode/window-info: Window Info is a readable stream that pushes data about windows on screen on MacOS. | 51791 |
+| 4292 | Visual Studio Code | 4-data.md — window-info | 367 |
+| 4171 | Google Chrome | window-info - npm | 51791 |
 | 59 | iTunes | iTunes | 382 |
 | 4 | Window Server | Backstop Menubar | 177 |
 | 49 | Finder |  | 387 |

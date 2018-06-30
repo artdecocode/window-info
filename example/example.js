@@ -24,7 +24,10 @@ import WindowInfo from '../src'
     }))
     .pipe(new Transform({
       transform(data, enc, next) {
-        this.push(JSON.stringify([['winid', 'App Name', 'Window Title', 'pid'], ...data]))
+        this.push(JSON.stringify([
+          ['winid', 'App Name', 'Window Title', 'pid'],
+          ...data,
+        ]))
         next()
       },
       writableObjectMode: true,
