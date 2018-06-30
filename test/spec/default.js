@@ -1,7 +1,7 @@
 import { equal, ok } from 'zoroaster/assert'
+import { Transform } from 'stream'
 import Context from '../context'
 import WindowInfo from '../../src'
-import { Transform } from 'stream'
 
 /** @type {Object.<string, (c: Context)>} */
 const T = {
