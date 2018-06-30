@@ -1,3 +1,9 @@
+## 30 June 2018
+
+### 1.0.3
+
+- [doc] use documentary, tidy
+
 ## 26 May 2018
 
 ### 1.0.2
