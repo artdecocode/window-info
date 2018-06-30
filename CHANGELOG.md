@@ -1,5 +1,9 @@
 ## 30 June 2018
 
+### 1.0.4
+
+- [doc] Static output table, fit example on `npm`.
+
 ### 1.0.3
 
 - [doc] use documentary, tidy
