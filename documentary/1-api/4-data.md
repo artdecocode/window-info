@@ -15,19 +15,19 @@ For example, `WindowInfo` can generate the following:
 The type definition then is according to the position in the array.
 
 %TYPE true
-<p name="winid" type="number" required>
+<p name="winid" type="number">
   <d>position 0</d>
   <e>480<br/>89</e>
 </p>
-<p name="App Name" type="string" required>
+<p name="App Name" type="string">
   <d>position 1</d>
   <e>Code<br/>Google Chrome</e>
 </p>
-<p name="Window Title" type="string" required>
+<p name="Window Title" type="string">
   <d>position 2</d>
   <e>example.js — window-info<br/>Stream | Node.js v10.2.1 Documentation</e>
 </p>
-<p name="pid" type="number" required>
+<p name="pid" type="number">
   <d>position 3</d>
   <e>405<br>410</e>
 </p>

@@ -18,10 +18,10 @@ yarn add -E window-info
     * [`constructor(delay?: number = 1000): WindowInfo`](#constructordelay-number--1000-windowinfo)
     * [`destroy(): void`](#destroy-void)
   * [`Data` Type](#data-type)
-    * [<strong><code>winid</code></strong>](#winid)
-    * [<strong><code>App Name</code></strong>](#app-name)
-    * [<strong><code>Window Title</code></strong>](#window-title)
-    * [<strong><code>pid</code></strong>](#pid)
+    * [<code>winid</code>](#winid)
+    * [<code>App Name</code>](#app-name)
+    * [<code>Window Title</code>](#window-title)
+    * [<code>pid</code>](#pid)
 
 ## API
 
@@ -131,25 +131,25 @@ The type definition then is according to the position in the array.
  </thead>
  <tbody>
    <tr>
-  <td><a name="winid"><strong><code>winid</code></strong></a></td>
+  <td><a name="winid"><code>winid</code></a></td>
   <td><em>number</em></td>
   <td>position 0</td>
   <td>480<br/>89</td>
  </tr>
  <tr>
-  <td><a name="app-name"><strong><code>App Name</code></strong></a></td>
+  <td><a name="app-name"><code>App Name</code></a></td>
   <td><em>string</em></td>
   <td>position 1</td>
   <td>Code<br/>Google Chrome</td>
  </tr>
  <tr>
-  <td><a name="window-title"><strong><code>Window Title</code></strong></a></td>
+  <td><a name="window-title"><code>Window Title</code></a></td>
   <td><em>string</em></td>
   <td>position 2</td>
   <td>example.js — window-info<br/>Stream | Node.js v10.2.1 Documentation</td>
  </tr>
  <tr>
-  <td><a name="pid"><strong><code>pid</code></strong></a></td>
+  <td><a name="pid"><code>pid</code></a></td>
   <td><em>number</em></td>
   <td>position 3</td>
   <td>405<br>410</td>
