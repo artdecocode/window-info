@@ -15,6 +15,7 @@ It opens a Python process which uses `Quartz` library to get information about w
 - [Table of Contents](#table-of-contents)
 - [API](#api)
   * [`constructor(delay?: number = 1000): WindowInfo`](#constructordelay-number--1000-windowinfo)
+  * [`destroy(): void`](#destroy-void)
   * [`Data` Type](#data-type)
     * [<strong><code>winid</code></strong>](#winid)
     * [<strong><code>App Name</code></strong>](#app-name)
