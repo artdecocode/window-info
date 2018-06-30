@@ -14,8 +14,9 @@ It opens a Python process which uses `Quartz` library to get information about w
 
 - [Table of Contents](#table-of-contents)
 - [API](#api)
-  * [`constructor(delay?: number = 1000): WindowInfo`](#constructordelay-number--1000-windowinfo)
-  * [`destroy(): void`](#destroy-void)
+  * [`WindowInfo` Stream](#windowinfo-stream)
+    * [`constructor(delay?: number = 1000): WindowInfo`](#constructordelay-number--1000-windowinfo)
+    * [`destroy(): void`](#destroy-void)
   * [`Data` Type](#data-type)
     * [<strong><code>winid</code></strong>](#winid)
     * [<strong><code>App Name</code></strong>](#app-name)
@@ -30,9 +31,14 @@ The default exported class is `WindowInfo` which is a Readable stream.
 import WindowInfo from 'window-info'
 ```
 
-### `constructor(`<br/>&nbsp;&nbsp;`delay?: number = 1000,`<br/>`): WindowInfo`
+### `WindowInfo` Stream
 
-Create a new readable stream. It's open in an object mode and its high watermark is set to 0 to prevent caching of window data when receiving streams haven't processed previous data. This ensures that the newer data is always as fresh as possible. The delays value ensures no data is written before the delay has passed since last write.
+`WindowInfo` is a Readable stream open in object mode with high watermark set to 0 to prevent caching of window data when receiving streams haven't processed previous data. This ensures that the newer data is always as fresh as possible. The presence of the delay value ensures that no data is written before the delay has passed since last write.
+
+
+#### `constructor(`<br/>&nbsp;&nbsp;`delay?: number = 1000,`<br/>`): WindowInfo`
+
+Create a new stream. The `delay` argument controls how often to query data.
 
 ```javascript
 import { Transform } from 'stream'
@@ -92,7 +98,7 @@ import WindowInfo from 'window-info'
 | 41 | Dock | Desktop Picture - Sierra 2.jpg | 384 |
 | 2 | Window Server | Desktop | 177 |
 
-### `destroy(): void`
+#### `destroy(): void`
 
 Call the `destroy` method to kill the underlying python process and end the stream.
 
