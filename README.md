@@ -2,13 +2,13 @@
 
 [![npm version](https://badge.fury.io/js/window-info.svg)](https://npmjs.org/package/window-info)
 
-```bash
-yarn add -E window-info
-```
-
 `window-info` is a readable stream that pushes data about windows on screen on MacOS.
 
 It opens a Python process which uses `Quartz` library to get information about windows.
+
+```sh
+yarn add -E window-info
+```
 
 ## Table of Contents
 
@@ -91,7 +91,7 @@ import WindowInfo from 'window-info'
 | 16 | SystemUIServer | NotificationCenter | 386 |
 | 3 | Window Server | Menubar | 177 |
 | 4209 | Visual Studio Code | index.md — window-info | 367 |
-| 4171 | Google Chrome | artdecocode/window-info: Window Info is a readable stream that pushes data about windows on screen on MacOS. | 51791 |
+| 4171 | Google Chrome | nodejs quartz binding - Google Search | 51791 |
 | 59 | iTunes | iTunes | 382 |
 | 4 | Window Server | Backstop Menubar | 177 |
 | 49 | Finder |  | 387 |
