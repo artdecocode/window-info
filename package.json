@@ -1,6 +1,6 @@
 {
   "name": "window-info",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Window Info is a readable stream that pushes data about windows on screen on MacOS.",
   "main": "build",
   "scripts": {
