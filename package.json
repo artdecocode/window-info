@@ -28,7 +28,8 @@
     "window",
     "os",
     "MacOS",
-    "winid"
+    "winid",
+    "quartz"
   ],
   "author": "Anton <anton@adc.sh>",
   "license": "MIT",
