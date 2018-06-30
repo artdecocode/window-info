@@ -3,6 +3,7 @@
 ### 1.0.4
 
 - [doc] Static output table, fit example on `npm`.
+- [package] Add `quartz` tag.
 
 ### 1.0.3
 
