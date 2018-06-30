@@ -83,21 +83,32 @@ import WindowInfo from 'window-info'
 | 18 | SystemUIServer | Siri | 386 |
 | 16 | SystemUIServer | NotificationCenter | 386 |
 | 3 | Window Server | Menubar | 177 |
-| 4209 | Visual Studio Code | README.md — window-info | 367 |
-| 4171 | Google Chrome | artdecocode/documentary: An Art Deco Node.js documentation pre-processor for your life. | 51791 |
+| 4209 | Visual Studio Code | index.md — window-info | 367 |
+| 4171 | Google Chrome | artdecocode/window-info: Window Info is a readable stream that pushes data about windows on screen on MacOS. | 51791 |
 | 59 | iTunes | iTunes | 382 |
 | 4 | Window Server | Backstop Menubar | 177 |
 | 49 | Finder |  | 387 |
 | 41 | Dock | Desktop Picture - Sierra 2.jpg | 384 |
 | 2 | Window Server | Desktop | 177 |
 
-### `destroy(): void`
+#### `destroy(): void`
 
 Call the `destroy` method to kill the underlying python process and end the stream.
 
 ### `Data` Type
 
-Data is an array with open window, where values are:
+Each data row in the read chunk contains information about open windows in form of an array.
+
+For example, `WindowInfo` can generate the following:
+
+```js
+[
+  [480, "Code", "example.js — window-info", 405],
+  [89, "Google Chrome", "Stream | Node.js v10.2.1 Documentation", 410]
+]
+```
+
+The type definition then is according to the position in the array.
 
 <table>
  <thead>
@@ -111,38 +122,31 @@ Data is an array with open window, where values are:
  <tbody>
    <tr>
   <td><a name="winid"><strong><code>winid</code></strong></a></td>
-  <td><em>undefined</em></td>
-  <td>0</td>
+  <td><em>number</em></td>
+  <td>position 0</td>
   <td>480<br/>89</td>
  </tr>
  <tr>
   <td><a name="app-name"><strong><code>App Name</code></strong></a></td>
-  <td><em>undefined</em></td>
-  <td>1</td>
+  <td><em>string</em></td>
+  <td>position 1</td>
   <td>Code<br/>Google Chrome</td>
  </tr>
  <tr>
   <td><a name="window-title"><strong><code>Window Title</code></strong></a></td>
-  <td><em>undefined</em></td>
-  <td>2</td>
+  <td><em>string</em></td>
+  <td>position 2</td>
   <td>example.js — window-info<br/>Stream | Node.js v10.2.1 Documentation</td>
  </tr>
  <tr>
   <td><a name="pid"><strong><code>pid</code></strong></a></td>
-  <td><em>undefined</em></td>
-  <td>3</td>
+  <td><em>number</em></td>
+  <td>position 3</td>
   <td>405<br>410</td>
  </tr>
  </tbody>
 </table>
 
-
-```js
-[
-  [480, "Code", "example.js — window-info", 405]
-  [89, "Google Chrome", "Stream | Node.js v10.2.1 Documentation", 410]
-]
-```
 
 ---
 
