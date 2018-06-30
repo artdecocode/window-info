@@ -24,7 +24,7 @@ The default exported class is `WindowInfo` which is a Readable stream.
 import WindowInfo from 'window-info'
 ```
 
-```#### constructor => WindowInfo
+```### constructor => WindowInfo
 [
   ["delay?", "number = 1000"]
 ]
@@ -67,7 +67,7 @@ Create a new readable stream. It's open in an object mode and its high watermark
   [ 2, 'Window Server', 'Desktop', 219 ] ]
 ``` -->
 
-```#### destroy
+```### destroy
 ```
 
 Call the `destroy` method to kill the underlying python process and end the stream.
