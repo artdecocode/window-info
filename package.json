@@ -12,7 +12,9 @@
     "lint": "eslint .",
     "e": "node example",
     "example/": "yarn e example/example.js",
-    "build": "babel src --copy-files --out-dir build --source-maps"
+    "b": "b --copy-files --source-maps",
+    "build": "yarn-s b doc",
+    "doc": "doc documentary -o README.md"
   },
   "files": [
     "build"
