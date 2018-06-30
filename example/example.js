@@ -1,5 +1,5 @@
 import { Transform } from 'stream'
-import WindowInfo from 'window-info'
+import WindowInfo from '../src'
 
 (async () => {
   const wi = new WindowInfo({
@@ -13,7 +13,7 @@ import WindowInfo from 'window-info'
         if (receivedData < limit) {
           this.push(data)
         } else {
-          console.log('\nlimit reached')
+          // limit reached
           wi.destroy()
         }
         receivedData++
@@ -24,10 +24,10 @@ import WindowInfo from 'window-info'
     }))
     .pipe(new Transform({
       transform(data, enc, next) {
-        this.push(JSON.stringify(data, null, 2))
+        this.push(JSON.stringify([['winid', 'App Name', 'Window Title', 'pid'], ...data]))
         next()
       },
-      objectMode: true,
+      writableObjectMode: true,
     }))
     .pipe(process.stdout)
 })()

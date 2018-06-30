@@ -1,6 +1,6 @@
 # window-info
 
-[![npm version](https://badge.fury.io/js/window-info.svg)](https://badge.fury.io/js/window-info)
+[![npm version](https://badge.fury.io/js/window-info.svg)](https://npmjs.org/package/window-info)
 
 ```bash
 yarn add -E window-info
@@ -10,12 +10,30 @@ yarn add -E window-info
 
 It opens a Python process which uses `Quartz` library to get information about windows.
 
-## `new WindowInfo({ delay? = 1000: number })`
+## Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [API](#api)
+    * [`constructor(delay?: number = 1000): WindowInfo`](#constructordelay-number--1000-windowinfo)
+  * [`Data` Type](#data-type)
+    * [<strong><code>winid</code></strong>](#winid)
+    * [<strong><code>App Name</code></strong>](#app-name)
+    * [<strong><code>Window Title</code></strong>](#window-title)
+    * [<strong><code>pid</code></strong>](#pid)
+
+## API
+
+The default exported class is `WindowInfo` which is a Readable stream.
+
+```js
+import WindowInfo from 'window-info'
+```
+
+#### `constructor(`<br/>&nbsp;&nbsp;`delay?: number = 1000,`<br/>`): WindowInfo`
 
 Create a new readable stream. It's open in an object mode and its high watermark is set to 0 to prevent caching of window data when receiving streams haven't processed previous data. This ensures that the newer data is always as fresh as possible. The delays value ensures no data is written before the delay has passed since last write.
 
-```js
-/* yarn example/ */
+```javascript
 import { Transform } from 'stream'
 import WindowInfo from 'window-info'
 
@@ -31,7 +49,7 @@ import WindowInfo from 'window-info'
         if (receivedData < limit) {
           this.push(data)
         } else {
-          console.log('\nlimit reached')
+          // limit reached
           wi.destroy()
         }
         receivedData++
@@ -42,62 +60,92 @@ import WindowInfo from 'window-info'
     }))
     .pipe(new Transform({
       transform(data, enc, next) {
-        this.push(JSON.stringify(data, null, 2))
+        this.push(JSON.stringify([['winid', 'App Name', 'Window Title', 'pid'], ...data]))
         next()
       },
-      objectMode: true,
+      writableObjectMode: true,
     }))
     .pipe(process.stdout)
 })()
 ```
 
-```sh
-[ [ 40, 'SystemUIServer', 'AppleClockExtra', 416 ],
-  [ 20, 'Little Snitch Agent', 'Item-0', 348 ],
-  [ 112, 'Creative Cloud', 'Item-0', 672 ],
-  [ 107, 'Tunnelblick', 'Item-0', 1285 ],
-  [ 99, 'Avira', 'Item-0', 677 ],
-  [ 92, 'PostgresMenuHelper', 'Item-0', 694 ],
-  [ 28, 'SystemUIServer', 'AppleBluetoothExtra', 416 ],
-  [ 32, 'SystemUIServer', 'AirPortExtra', 416 ],
-  [ 36, 'SystemUIServer', 'AppleTextInputExtra', 416 ],
-  [ 44, 'SystemUIServer', 'AppleUser', 416 ],
-  [ 51, 'Spotlight', 'Item-0', 421 ],
-  [ 25, 'SystemUIServer', 'Siri', 416 ],
-  [ 23, 'SystemUIServer', 'NotificationCenter', 416 ],
-  [ 3, 'Window Server', 'Menubar', 219 ],
-  [ 480, 'Code', 'example.js — window-info', 405 ],
-  [ 127, 'Code', 'launch.json — appshot', 405 ],
-  [ 86, 'Code', 'meta.jsx — koa2-jsx', 405 ],
-  [ 89,
-    'Google Chrome',
-    'Stream | Node.js v10.2.1 Documentation',
-    410 ],
-  [ 465, 'Finder', 'expected-cloned', 417 ],
-  [ 78, 'iTerm', '1. bash', 413 ],
-  [ 4, 'Window Server', 'Backstop Menubar', 219 ],
-  [ 66, 'Finder', '', 417 ],
-  [ 49, 'Dock', 'Desktop Picture - Sierra 2.jpg', 415 ],
-  [ 2, 'Window Server', 'Desktop', 219 ] ]
-```
+| winid | App Name | Window Title | pid |
+| ----- | -------- | ------------ | --- |
+| 33 | SystemUIServer | AppleClockExtra | 386 |
+| 73 | Avira | Item-0 | 501 |
+| 60 | PostgresMenuHelper | Item-0 | 525 |
+| 51 | Little Snitch Agent | Item-0 | 348 |
+| 20 | SystemUIServer | AppleBluetoothExtra | 386 |
+| 24 | SystemUIServer | AirPortExtra | 386 |
+| 29 | SystemUIServer | AppleTextInputExtra | 386 |
+| 37 | SystemUIServer | AppleUser | 386 |
+| 45 | Spotlight | Item-0 | 405 |
+| 18 | SystemUIServer | Siri | 386 |
+| 16 | SystemUIServer | NotificationCenter | 386 |
+| 3 | Window Server | Menubar | 177 |
+| 4209 | Visual Studio Code | README.md — window-info | 367 |
+| 4171 | Google Chrome | artdecocode/documentary: An Art Deco Node.js documentation pre-processor for your life. | 51791 |
+| 59 | iTunes | iTunes | 382 |
+| 4 | Window Server | Backstop Menubar | 177 |
+| 49 | Finder |  | 387 |
+| 41 | Dock | Desktop Picture - Sierra 2.jpg | 384 |
+| 2 | Window Server | Desktop | 177 |
 
-## `.destroy`
+### `destroy(): void`
 
 Call the `destroy` method to kill the underlying python process and end the stream.
 
-## Data
+### `Data` Type
 
 Data is an array with open window, where values are:
 
-`winid`, `App Name`, `Window Title`, `pid`
+<table>
+ <thead>
+  <tr>
+   <th>Property</th>
+   <th>Type</th>
+   <th>Description</th>
+   <th>Example</th>
+  </tr>
+ </thead>
+ <tbody>
+   <tr>
+  <td><a name="winid"><strong><code>winid</code></strong></a></td>
+  <td><em>undefined</em></td>
+  <td>0</td>
+  <td>480<br/>89</td>
+ </tr>
+ <tr>
+  <td><a name="app-name"><strong><code>App Name</code></strong></a></td>
+  <td><em>undefined</em></td>
+  <td>1</td>
+  <td>Code<br/>Google Chrome</td>
+ </tr>
+ <tr>
+  <td><a name="window-title"><strong><code>Window Title</code></strong></a></td>
+  <td><em>undefined</em></td>
+  <td>2</td>
+  <td>example.js — window-info<br/>Stream | Node.js v10.2.1 Documentation</td>
+ </tr>
+ <tr>
+  <td><a name="pid"><strong><code>pid</code></strong></a></td>
+  <td><em>undefined</em></td>
+  <td>3</td>
+  <td>405<br>410</td>
+ </tr>
+ </tbody>
+</table>
+
 
 ```js
-[480 ,"Code", "example.js — window-info", 405]
-[89, "Google Chrome", "Stream | Node.js v10.2.1 Documentation", 410]
+[
+  [480, "Code", "example.js — window-info", 405]
+  [89, "Google Chrome", "Stream | Node.js v10.2.1 Documentation", 410]
+]
 ```
 
 ---
 
-(c) [artdecocode][1] 2018
+(c) [Art Deco][1] 2018
 
 [1]: https://artdeco.bz
